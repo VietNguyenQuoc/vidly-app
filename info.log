@@ -1,0 +1,2 @@
+{"message":"MongoDB connected to mongodb://localhost:27017/vidly","level":"info"}
+{"message":"MongoDB connected to mongodb+srv://quocviet:quocviet@vidly-2mbqg.mongodb.net/test?retryWrites=true&w=majority","level":"info"}
