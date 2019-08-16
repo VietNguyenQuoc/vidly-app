@@ -13,7 +13,9 @@ module.exports = function (app) {
   app.use(express.json());
   app.use(session({
     secret: 'love hina',
-    cookie: {}
+    cookie: {
+      path: '/api/genres'
+    }
   }));
   app.use('/api/genres', genres);
   app.use('/api/customers', customers);
