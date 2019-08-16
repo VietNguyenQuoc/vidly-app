@@ -10,14 +10,14 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/', async (req, res) => {
-    const { error } = movieValidate(req.body);
+    const {error} = movieValidate(req.body);
 
-    if (error) return res.status(400).send('Invalid genre.');
+    if (error) return res.status(400).send(error.details[0].message);
 
     // find the genre on genres collection
     const genre = await Genres.findById(req.body.genreId);
 
-    const movie = await new Movies({
+    const movie = new Movies({
         title: req.body.title,
         genre: {
             _id: genre._id,

@@ -8,7 +8,7 @@ require('./startup/db')();
 require('./startup/config')();
 require('./startup/prod')(app);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}....`));
 // addNewGenre();
 

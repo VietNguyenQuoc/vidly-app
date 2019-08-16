@@ -7,9 +7,14 @@ const users = require('../routes/users');
 const auths = require('../routes/auths');
 const returns  = require('../routes/returns');
 const error = require('../middleware/error');
+const session = require('express-session');
 
 module.exports = function (app) {
   app.use(express.json());
+  app.use(session({
+    secret: 'love hina',
+    cookie: {}
+  }));
   app.use('/api/genres', genres);
   app.use('/api/customers', customers);
   app.use('/api/movies', movies);
