@@ -21,7 +21,8 @@ router.post('/', async (req, res) => {
     user = new Users({
         email: req.body.email,
         name: req.body.name,
-        password: hashed
+        password: hashed,
+        isAdmin: req.body.isAdmin
     });
 
     await user.save();
@@ -30,5 +31,6 @@ router.post('/', async (req, res) => {
 
     res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
 });
+
 
 module.exports = router;

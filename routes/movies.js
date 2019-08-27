@@ -4,7 +4,7 @@ const {movieValidate, Movies} = require('../models/movie');
 const {Genres} = require('../models/genre');
 
 router.get('/', async (req, res) => {
-    const movies = await Movies.find().sort({ name: 1 });
+    const movies = await Movies.find().sort({ name: 1 }).cache();
 
     res.send(movies);
 })

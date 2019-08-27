@@ -20,9 +20,9 @@ const customerSchema = new mongoose.Schema({
     }
 });
 
-function customerValidate(customer) {
+function customerValidateNew(customer) {
     const schema = {
-        name: Joi.string().required().min(6).max(50),
+        name: Joi.string().required().min(5).max(50),
         phone: Joi.string().required().min(5).max(50),
         isGold: Joi.boolean().required()
     }
@@ -30,8 +30,19 @@ function customerValidate(customer) {
     return Joi.validate(customer, schema);
 }
 
+function customerValidateUpdate(customer) {
+  const schema = Joi.object().keys({
+    name: Joi.string().min(5).max(50),
+    phone: Joi.string().min(5).max(50),
+    isGold: Joi.boolean()
+  }).or('name', 'phone', 'isGold');
+
+  return Joi.validate(customer, schema);
+}
+
 const Customers = mongoose.model('customer', customerSchema);
 
 exports.Customers = Customers;
-exports.validate = customerValidate;
+exports.validateNew = customerValidateNew;
+exports.validateUpdate = customerValidateUpdate;
 exports.customerSchema = customerSchema;

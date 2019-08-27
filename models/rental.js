@@ -67,6 +67,18 @@ rentalSchema.statics.lookup = function (customerId, movieId) {
   });
 }
 
+rentalSchema.virtual('customerInfo').get(function () {
+  return this.customer.name + ' ' + this.customer.phone;
+});
+
+rentalSchema.methods.updateCustomer = function (info) {
+  for (key in info) {
+    this.customer[key] = info[key];
+  }
+
+  this.save();
+}
+
 const Rentals = mongoose.model('rental', rentalSchema);
 
 function rentalValidate(rental) {

@@ -5,10 +5,11 @@ const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const asyncMiddleware = require('../middleware/async');
 const validateObjectId = require('../middleware/objectid');
+const {clearHash} = require('../startup/cache');
 require('express-async-errors');
 
 router.get('/', async (req, res) => {
-    const genre = await Genres.find().sort({ name: 1 });
+    const genre = await Genres.find().sort({ name: 1 }).cache();
 
     res.send(genre);
 })
@@ -41,6 +42,7 @@ router.post('/', async (req, res) => {
     });
 
     await genre.save();
+    clearHash('*genre*');
     res.send('Update new genre successfully.');
 })
 

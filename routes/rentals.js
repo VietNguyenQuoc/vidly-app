@@ -5,7 +5,7 @@ const {Movies} = require('../models/movie');
 const {Customers} = require('../models/customer');
 
 router.get('/', async (req, res) => {
-    const rentals = await Rentals.find();
+    const rentals = await Rentals.find().select('customerInfo');
 
     res.send(rentals);
 })

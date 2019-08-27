@@ -4,10 +4,10 @@ const _ = require('lodash');
 const bcrypt = require('bcrypt');
 const express = require('express');
 const router = express.Router();
-const { Users, userValidate } = require('../models/user');
+const {Users, authValidate} = require('../models/user');
 
 router.post('/', async (req, res) => {
-    const { error } = userValidate(req.body);
+    const { error } = authValidate(req.body);
 
     if (error) res.status(400).send(error.details[0].message);
 
