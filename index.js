@@ -8,6 +8,7 @@ require('./startup/db')();
 require('./startup/config')();
 require('./startup/prod')(app);
 require('./startup/cache');
+require('./startup/passport');
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}....`));

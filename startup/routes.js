@@ -5,9 +5,10 @@ const movies = require('../routes/movies');
 const rentals = require('../routes/rentals');
 const users = require('../routes/users');
 const auths = require('../routes/auths');
-const returns  = require('../routes/returns');
+const returns = require('../routes/returns');
 const error = require('../middleware/error');
 const session = require('express-session');
+const authG = require('../routes/passport');
 
 module.exports = function (app) {
   app.use(express.json());
@@ -24,5 +25,6 @@ module.exports = function (app) {
   app.use('/api/users', users);
   app.use('/api/auths', auths);
   app.use('/api/returns', returns);
+  app.use('/auth/google', authG);
   app.use(error);
 }
