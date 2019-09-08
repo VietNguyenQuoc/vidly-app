@@ -1,9 +1,9 @@
 const request = require('supertest');
 let server;
-const {Users} = require('../../models/user');
+const { Users } = require('../../models/user');
 
 describe('/middleware/auth', () => {
-  beforeEach(() => { 
+  beforeEach(() => {
     server = require('../../index');
     token = new Users().generateAuthToken();
   });
@@ -34,4 +34,10 @@ describe('/middleware/auth', () => {
 
     expect(res.status).toBe(400);
   });
+
+  it('should redirect to google after click the Login button', async () => {
+    const res = await request(server).get('/auth/google');
+
+    expect(res.headers.location).toMatch('accounts.google.com')
+  })
 });

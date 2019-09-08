@@ -1,11 +1,11 @@
 const request = require('supertest');
-const {Genres} = require('../../models/genre');
+const { Genres } = require('../../models/genre');
 const mongoose = require('mongoose');
 let server;
-const {Users} = require('../../models/user');
+const { Users } = require('../../models/user');
 
 describe('/api/genres ', () => {
-  beforeEach(async () => { 
+  beforeEach(async () => {
     server = require('../../index');
     await Genres.deleteMany({});
   });
@@ -29,7 +29,7 @@ describe('/api/genres ', () => {
       const genre = await new Genres({ name: "genre1" });
       await genre.save();
 
-      const res = await request(server).get('/api/genres/'+genre._id);
+      const res = await request(server).get('/api/genres/' + genre._id);
       expect(res.status).toBe(200);
       expect(res.body).toHaveProperty('name', 'genre1');
     });
@@ -58,7 +58,7 @@ describe('/api/genres ', () => {
 
     it('should return 400 error if genre is less than 5 character.', async () => {
       const token = new Users().generateAuthToken();
-      
+
       const res = await request(server)
         .post('/api/genres')
         .set('x-auth-token', token)
@@ -66,10 +66,10 @@ describe('/api/genres ', () => {
 
       expect(res.status).toBe(400);
     });
-    
+
     it('should return 400 error if genre is more than 255 character.', async () => {
       const token = new Users().generateAuthToken();
-      
+
       const genre = new Array(257).join('a');
 
       const res = await request(server)
@@ -82,7 +82,7 @@ describe('/api/genres ', () => {
 
     it('should save the genre if it is valid.', async () => {
       const token = new Users().generateAuthToken();
-      
+
       const res = await request(server)
         .post('/api/genres')
         .set('x-auth-token', token)
@@ -170,9 +170,16 @@ describe('/api/genres ', () => {
       const res = await exec();
 
       const query = await Genres.findById(id);
-
       expect(res.status).toBe(200);
       expect(query).toBeFalsy();
+    });
+
+    it('should return user when the cookie is available.', async () => {
+      const res = await request(server)
+        .get('/api/movie')
+        .set("Cookie", "sessionid=s%3Asf-LJPDvgwjSxz7HYEoR-MS1p5j-QQH9.SW7Wmxsn2HpwNuR5xfaW8TrTOW%2FKWHrfVP62DrC86yA");
+
+      expect(res.body).toMatchObject({ googleId: "107538067860246796426" });
     });
   });
 });

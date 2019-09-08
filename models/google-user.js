@@ -7,5 +7,5 @@ const GUser = mongoose.model("googleuser", new mongoose.Schema({
   }
 }));
 
-module.export = GUser;
+module.exports = GUser;
 

@@ -7,13 +7,21 @@ const asyncMiddleware = require("../middleware/async");
 const validateObjectId = require("../middleware/objectid");
 const { clearHash } = require("../startup/cache");
 require("express-async-errors");
+const path = require('path');
+const fs = require('fs');
 
+function stream(path) {
+  const readStream = fs.createReadStream(path);
+  return readStream;
+}
 router.get("/", async (req, res) => {
   const genre = await Genres.find()
     .sort({ name: 1 })
     .cache();
 
-  res.redirect("/api/movies");
+  res.send(genre);
+  // res.send(`You have viewed this page ${req.session.views} times.`);
+  // res.sendFile(path.resolve(__dirname + '/../image/logo.jpg'));
 });
 
 router.get("/:id", validateObjectId, async (req, res) => {
