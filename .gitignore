@@ -1,3 +1,7 @@
 node_modules/
 coverage/
 test.js
+credit-rating.js
+125 persons.json
+info.log
+exception.log
