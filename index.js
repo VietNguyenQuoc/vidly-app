@@ -11,9 +11,9 @@ require('./startup/cache');
 require('./startup/passport');
 
 const PORT = process.env.PORT || 3000;
-const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}....`));
-// addNewGenre();
+// const server = app.listen(PORT, () => console.log(`Listening on port ${PORT}....`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}....`));
 
-module.exports = server;
+// module.exports = server;
 
 
