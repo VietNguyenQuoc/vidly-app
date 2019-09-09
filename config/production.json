@@ -1,4 +1,5 @@
 {
-  "jwtPrivateKey": "quocviet",
-  "db": "mongodb+srv://quocviet:quocviet@vidly-2mbqg.mongodb.net/test?retryWrites=true"
+  "jwtPrivateKey": "",
+  "db": "",
+  "redis_url": ""
 }
