@@ -128,3 +128,8 @@
 {"level":"error","message":"genre.show is not a functiongenre.show is not a function","stack":"TypeError: genre.show is not a function\n    at router.get (F:\\Programming\\Javascript\\mongo-demo\\routes\\genres.js:22:9)\n    at process._tickCallback (internal/process/next_tick.js:68:7)"}
 {"message":"MongoDB connected to mongodb://localhost:27017/vidly","level":"info"}
 {"message":"MongoDB connected to mongodb://localhost:27017/vidly","level":"info"}
+{"message":"MongoDB connected to mongodb://localhost:27017/vidly","level":"info"}
+{"message":"MongoDB connected to mongodb+srv://quocviet:quocviet@vidly-2mbqg.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"MongoDB connected to mongodb+srv://quocviet:quocviet@vidly-2mbqg.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"MongoDB connected to mongodb+srv://quocviet:quocviet@vidly-2mbqg.mongodb.net/test?retryWrites=true","level":"info"}
+{"message":"MongoDB connected to mongodb+srv://quocviet:quocviet@vidly-2mbqg.mongodb.net/test?retryWrites=true","level":"info"}
