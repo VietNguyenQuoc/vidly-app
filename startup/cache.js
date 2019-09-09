@@ -3,7 +3,7 @@ const redis = require('redis');
 const config = require('config');
 const url = require('url');
 const redisUrl = url.parse(process.env.REDIS_URL);
-const client = redis.createClient(redisUrl.port, redisUrl.hostname, { no_ready_check: true });
+const client = redis.createClient(redisUrl);
 const util = require('util');
 client.get = util.promisify(client.get);
 
