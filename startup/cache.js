@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const redis = require('redis');
 const config = require('config');
 const redisUrl = config.get('redis_url');
-const client = redis.createClient(redisUrl);
+const client = redis.createClient(process.env.REDIS_URL);
 const util = require('util');
 client.get = util.promisify(client.get);
 
