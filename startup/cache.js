@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 const redis = require('redis');
 const config = require('config');
-const redisUrl = config.get('redis_url');
-const client = redis.createClient(process.env.REDIS_URL);
+const url = require('url');
+const redisUrl = url.parse(process.env.REDIS_URL);
+const client = redis.createClient(redisUrl.port, redisUrl.hostname, { no_ready_check: true });
 const util = require('util');
 client.get = util.promisify(client.get);
 
