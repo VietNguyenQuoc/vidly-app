@@ -1,4 +1,5 @@
 {
-    "jwtPrivateKey": "vidly_jwtPrivateKey",
-    "db": "vidly_db"
+  "jwtPrivateKey": "vidly_jwtPrivateKey",
+  "db": "vidly_db",
+  "redis_url": "REDIS_URL"
 }
