@@ -6,7 +6,7 @@ const config = require('config');
 var client = redis.createClient(process.env.REDIS_URL);
 // client.auth(redisURL.auth.split(":")[1]);
 const util = require('util');
-client.get = util.promisify(client.get);
+client.getA = util.promisify(client.get);
 const exec = mongoose.Query.prototype.exec;
 
 mongoose.Query.prototype.cache = function () {
@@ -20,7 +20,7 @@ mongoose.Query.prototype.exec = async function () {
     const key = JSON.stringify(
       Object.assign({}, this.getQuery(), { collection: this.mongooseCollection.name })
     );
-    const redisCheck = await client.get(key);
+    const redisCheck = await client.getA(key);
 
     if (redisCheck) {
       console.log('Redis cache supernatural unlocked.')

@@ -12,13 +12,13 @@ const authG = require('../routes/passport');
 const resize = require('../routes/resize');
 const passport = require('passport');
 const RedisStore = require('connect-redis')(session);
-const client = require('../startup/cache');
+const { redisClient } = require('../startup/cache');
 
 module.exports = function (app) {
   app.use(express.json());
   app.use(session({
     store: new RedisStore({
-      client,
+      client: redisClient
     }),
     secret: 'love hina',
     name: 'sessionid',
