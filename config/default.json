@@ -1,5 +1,4 @@
 {
   "jwtPrivateKey": "1234",
-  "db": "mongodb://localhost:27017/vidly",
-  "redis_url": ""
+  "db": "mongodb://localhost:27017/vidly"
 }

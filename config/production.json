@@ -1,5 +1,4 @@
 {
   "jwtPrivateKey": "",
-  "db": "",
-  "redis_url": ""
+  "db": ""
 }

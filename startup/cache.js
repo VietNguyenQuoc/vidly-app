@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const redis = require('redis');
 const config = require('config');
-var redisURL = require("url").parse(process.env.REDIS_URL);
-var client = redis.createClient(redisURL.port, redisURL.hostname);
-client.auth(redisURL.auth.split(":")[1]);
+// var redisURL = require("url").parse(process.env.REDIS_URL);
+// var client = redis.createClient(redisURL.port, redisURL.hostname);
+var client = redis.createClient(process.env.REDIS_URL);
+// client.auth(redisURL.auth.split(":")[1]);
 const util = require('util');
 client.get = util.promisify(client.get);
 const exec = mongoose.Query.prototype.exec;

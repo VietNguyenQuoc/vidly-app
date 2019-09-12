@@ -12,9 +12,7 @@ const authG = require('../routes/passport');
 const resize = require('../routes/resize');
 const passport = require('passport');
 const RedisStore = require('connect-redis')(session);
-//const session = require('cookie-session');
-const redis = require('redis');
-let client = redis.createClient();
+const client = require('../startup/cache');
 
 module.exports = function (app) {
   app.use(express.json());

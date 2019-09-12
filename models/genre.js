@@ -15,9 +15,6 @@ const genreSchema = new mongoose.Schema({
 //Connect to a collection
 const Genres = mongoose.model('genre', genreSchema);
 
-Genres.prototype.show = function () {
-  console.log('It works.');
-}
 
 function genreValidate(genre) {
   const schema = {
