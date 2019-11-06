@@ -5,7 +5,7 @@ const { Genres } = require('../models/genre');
 const ObjectIdValidate = require('../middleware/objectid');
 
 router.get('/', async (req, res) => {
-  const movies = await Movies.find().sort({ name: 1 })
+  const movies = await Movies.find().sort({ name: 1 });
   res.send(movies);
 })
 

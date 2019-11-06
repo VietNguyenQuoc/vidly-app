@@ -1,0 +1,77 @@
+Date : 2019-11-01 00:12:14
+Directory : f:\Programming\Javascript\mongo-demo
+Total : 43 files,  8379 codes, 23 comments, 333 blanks, all 8735 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          4 |      7,174 |          0 |          1 |      7,175 |
+| JavaScript |         38 |      1,181 |         23 |        329 |      1,533 |
+| HTML       |          1 |         24 |          0 |          3 |         27 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------+------------+------------+------------+------------+------------+
+| path                                     | files      | code       | comment    | blank      | total      |
++------------------------------------------+------------+------------+------------+------------+------------+
+| .                                        |         43 |      8,379 |         23 |        333 |      8,735 |
+| test                                     |          8 |        382 |          4 |        130 |        516 |
+| test\integration                         |          5 |        341 |          4 |        121 |        466 |
+| routes                                   |         10 |        329 |         10 |        116 |        455 |
+| models                                   |          6 |        296 |          2 |         48 |        346 |
+| startup                                  |          8 |        144 |          5 |         26 |        175 |
+| test\unit                                |          3 |         41 |          0 |          9 |         50 |
+| middleware                               |          5 |         39 |          0 |          6 |         45 |
+| config                                   |          2 |          8 |          0 |          0 |          8 |
++------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                 | language   | code       | comment    | blank      | total      |
++------------------------------------------+------------+------------+------------+------------+------------+
+| config\custom-environment-variables.json | JSON       |          4 |          0 |          0 |          4 |
+| config\test.json                         | JSON       |          4 |          0 |          0 |          4 |
+| index.js                                 | JavaScript |         12 |          2 |          6 |         20 |
+| jest.config.js                           | JavaScript |          3 |          0 |          0 |          3 |
+| middleware\admin.js                      | JavaScript |          4 |          0 |          1 |          5 |
+| middleware\async.js                      | JavaScript |         10 |          0 |          0 |         10 |
+| middleware\auth.js                       | JavaScript |         14 |          0 |          2 |         16 |
+| middleware\error.js                      | JavaScript |          5 |          0 |          2 |          7 |
+| middleware\objectid.js                   | JavaScript |          6 |          0 |          1 |          7 |
+| models\customer.js                       | JavaScript |         41 |          0 |          7 |         48 |
+| models\genre.js                          | JavaScript |         21 |          2 |          7 |         30 |
+| models\google-user.js                    | JavaScript |          8 |          0 |          4 |         12 |
+| models\movie.js                          | JavaScript |         62 |          0 |          9 |         71 |
+| models\rental.js                         | JavaScript |         84 |          0 |          9 |         93 |
+| models\user.js                           | JavaScript |         80 |          0 |         12 |         92 |
+| package-lock.json                        | JSON       |      7,113 |          0 |          1 |      7,114 |
+| package.json                             | JSON       |         53 |          0 |          0 |         53 |
+| routes\auths.js                          | JavaScript |         22 |          0 |         10 |         32 |
+| routes\customers.js                      | JavaScript |         43 |          1 |         14 |         58 |
+| routes\genres.js                         | JavaScript |         60 |          7 |         21 |         88 |
+| routes\index.html                        | HTML       |         24 |          0 |          3 |         27 |
+| routes\movies.js                         | JavaScript |         40 |          1 |         16 |         57 |
+| routes\passport.js                       | JavaScript |          9 |          0 |          3 |         12 |
+| routes\rentals.js                        | JavaScript |         35 |          0 |         12 |         47 |
+| routes\resize.js                         | JavaScript |         16 |          1 |          5 |         22 |
+| routes\returns.js                        | JavaScript |         19 |          0 |          8 |         27 |
+| routes\users.js                          | JavaScript |         61 |          0 |         24 |         85 |
+| startup\cache.js                         | JavaScript |         42 |          4 |          9 |         55 |
+| startup\config.js                        | JavaScript |          6 |          0 |          1 |          7 |
+| startup\db.js                            | JavaScript |          9 |          0 |          1 |         10 |
+| startup\gmail-transporter.js             | JavaScript |          8 |          0 |          1 |          9 |
+| startup\logging.js                       | JavaScript |          8 |          0 |          2 |         10 |
+| startup\passport.js                      | JavaScript |         26 |          1 |         10 |         37 |
+| startup\prod.js                          | JavaScript |          6 |          0 |          1 |          7 |
+| startup\routes.js                        | JavaScript |         39 |          0 |          1 |         40 |
+| test\integration\auth.test.js            | JavaScript |         32 |          0 |         12 |         44 |
+| test\integration\cookie.test.js          | JavaScript |         17 |          1 |          6 |         24 |
+| test\integration\customer.test.js        | JavaScript |         48 |          0 |         19 |         67 |
+| test\integration\genre.test.js           | JavaScript |        139 |          0 |         46 |        185 |
+| test\integration\rental.test.js          | JavaScript |        105 |          3 |         38 |        146 |
+| test\unit\admin.test.js                  | JavaScript |          0 |          0 |          1 |          1 |
+| test\unit\auth.test.js                   | JavaScript |         24 |          0 |          5 |         29 |
+| test\unit\model.test.js                  | JavaScript |         17 |          0 |          3 |         20 |
+| Total                                    |            |      8,379 |         23 |        333 |      8,735 |
++------------------------------------------+------------+------------+------------+------------+------------+

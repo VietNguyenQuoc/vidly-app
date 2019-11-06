@@ -1,6 +1,7 @@
 const passport = require("passport");
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const User = require('../models/google-user');
+const config = require('config');
 
 
 passport.serializeUser((user, done) => {
@@ -14,8 +15,8 @@ passport.deserializeUser(async (id, done) => {
 })
 
 passport.use(new GoogleStrategy({
-  clientID: "601934133276-hn0d3oo31teb0rtjgdejrl49qfin5ffc.apps.googleusercontent.com",
-  clientSecret: "y3LuRQQDztiAcaLU0Hal6OUo",
+  clientID: config.get('GOOGLE_CLIENT_ID'),
+  clientSecret: config.get('GOOGLE_CLIENT_SECRET'),
   callbackURL: "/auth/google/callback"
 }, async (accessToken, refreshToken, profile, done) => {
   const user = await User.findOne({ googleId: profile.id });
@@ -29,6 +30,7 @@ passport.use(new GoogleStrategy({
 
   done(null, user);
 }));
+
 
 
 

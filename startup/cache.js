@@ -1,12 +1,9 @@
 const mongoose = require('mongoose');
 const redis = require('redis');
 const config = require('config');
-// var redisURL = require("url").parse(process.env.REDIS_URL);
-// var client = redis.createClient(redisURL.port, redisURL.hostname);
 var client = redis.createClient(process.env.REDIS_URL);
-// client.auth(redisURL.auth.split(":")[1]);
 const util = require('util');
-client.getA = util.promisify(client.get);
+client.getAsync = util.promisify(client.get);
 const exec = mongoose.Query.prototype.exec;
 
 mongoose.Query.prototype.cache = function () {
@@ -20,7 +17,7 @@ mongoose.Query.prototype.exec = async function () {
     const key = JSON.stringify(
       Object.assign({}, this.getQuery(), { collection: this.mongooseCollection.name })
     );
-    const redisCheck = await client.getA(key);
+    const redisCheck = await client.getAsync(key);
 
     if (redisCheck) {
       console.log('Redis cache supernatural unlocked.')
@@ -43,7 +40,16 @@ mongoose.Query.prototype.exec = async function () {
   return result;
 }
 
+function clearHash(regex) {
+  client.keys(regex, (err, keys) => {
+    if (err) throw new Error(err);
+    keys.forEach(key => {
+      client.del(key);
+    })
+  })
+}
 // Query -> Redis check -> MongoDB 
 // Implement the cache mechanism inside the query execute method of mongoose model.
 
 exports.redisClient = client;
+exports.clearHash = clearHash;

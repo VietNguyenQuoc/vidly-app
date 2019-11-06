@@ -8,6 +8,7 @@ const auths = require('../routes/auths');
 const returns = require('../routes/returns');
 const error = require('../middleware/error');
 const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const authG = require('../routes/passport');
 const resize = require('../routes/resize');
 const passport = require('passport');
@@ -25,6 +26,7 @@ module.exports = function (app) {
     resave: true,
     saveUninitialized: true
   }));
+  app.use(cookieParser())
   app.use(passport.initialize());
   app.use(passport.session());
   app.use('/api/genres', genres);
@@ -37,5 +39,4 @@ module.exports = function (app) {
   app.use('/auth/google', authG);
   app.use('/api/resize', resize);
   app.use(error);
-  app.use
 }

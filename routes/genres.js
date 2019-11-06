@@ -6,9 +6,9 @@ const admin = require("../middleware/admin");
 const asyncMiddleware = require("../middleware/async");
 const validateObjectId = require("../middleware/objectid");
 const { clearHash } = require("../startup/cache");
-require("express-async-errors");
 const path = require('path');
 const fs = require('fs');
+const mongoose = require('mongoose');
 
 function stream(path) {
   const readStream = fs.createReadStream(path);
@@ -46,7 +46,7 @@ router.post("/", async (req, res) => {
 
   console.log(maxId);
 
-  const genre = await new Genres({
+  const genre = new Genres({
     id: (maxId ? maxId.id : 0) + 1,
     name: req.body.name
   });
@@ -56,20 +56,19 @@ router.post("/", async (req, res) => {
   res.send("Update new genre successfully.");
 });
 
-router.put("/:id", auth, validateObjectId, async (req, res) => {
+router.put("/:id", validateObjectId, async (req, res) => {
   const { error } = genreValidate(req.body);
 
   if (error) return res.status(400).send(error.details[0].message);
+  const genre = await Genres.findOneAndUpdate({ _id: (req.params.id) }, {
+    name: req.body.name
+  }, { runValidators: true });
 
-  // const genre = await Genres.findOneAndUpdate({ id: req.params.id }, {
-  //     name: req.body.name
-  // }, { new: true });
-
-  const genre = await Genres.findByIdAndUpdate(
-    req.params.id,
-    { name: req.body.name },
-    { new: true }
-  );
+  // const genre = await Genres.findByIdAndUpdate(
+  //   req.params.id,
+  //   { name: req.body.name },
+  //   { new: true }
+  // );
 
   if (!genre) return res.status(404).send("Genre not found.");
 
